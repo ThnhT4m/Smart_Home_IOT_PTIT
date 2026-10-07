@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="IoT Voice Control - Điều khiển thiết bị IoT bằng giọng nói tiếng Việt." />
+    <title>IoT Voice Control</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main class="container" role="main">
+        <header class="header">
+            <h1 class="title">IoT Voice Control</h1>
+            <p class="subtitle">Điều khiển thiết bị IoT bằng giọng nói tiếng Việt</p>
+            <div class="mode-badge" id="modeBadge" aria-live="polite">Mock mode</div>
+        </header>
+
+        <section class="card" aria-labelledby="statusLabel">
+            <div class="status-row">
+                <span class="status-label" id="statusLabel">Trạng thái:</span>
+                <span id="statusText" class="status-value status-idle" aria-live="polite">Sẵn sàng</span>
+            </div>
+
+            <div class="mic-wrapper">
+                <button
+                    id="micBtn"
+                    type="button"
+                    class="mic-btn"
+                    aria-label="Bấm để bắt đầu nhận giọng nói"
+                    title="Bấm để bắt đầu nhận giọng nói"
+                >
+                    <span class="mic-icon" aria-hidden="true">🎤</span>
+                </button>
+                <p id="micHint" class="mic-hint">Nhấn micro để nói</p>
+            </div>
+
+            <div class="interim" id="interimBox" hidden>
+                <span class="interim-label">Đang nhận diện:</span>
+                <span id="interimText" class="interim-text"></span>
+            </div>
+
+            <div class="field">
+                <label for="transcriptInput" class="field-label">Câu lệnh (có thể chỉnh sửa):</label>
+                <textarea
+                    id="transcriptInput"
+                    class="transcript-input"
+                    rows="3"
+                    placeholder='Ví dụ: "bật quạt giúp tôi"'
+                    aria-label="Ô chỉnh sửa câu lệnh sau khi nhận diện"
+                ></textarea>
+            </div>
+
+            <div class="field">
+                <span class="field-label">Payload sẽ gửi sang backend:</span>
+                <pre id="payloadPreview" class="payload-preview" aria-live="polite">{
+  "text": ""
+}</pre>
+            </div>
+
+            <div class="actions">
+                <button
+                    id="sendBtn"
+                    type="button"
+                    class="btn btn-primary"
+                    disabled
+                    aria-label="Gửi lệnh sang backend"
+                >Gửi lệnh</button>
+                <button
+                    id="clearBtn"
+                    type="button"
+                    class="btn btn-secondary"
+                    aria-label="Xóa toàn bộ nội dung"
+                >Xóa</button>
+            </div>
+        </section>
+
+        <section class="card" aria-labelledby="responseLabel" id="responseSection" hidden>
+            <h2 id="responseLabel" class="card-title">Phản hồi từ backend</h2>
+            <pre id="responseBody" class="response-body"></pre>
+        </section>
+
+        <section class="card warning-card" id="warningSection" hidden>
+            <h2 class="card-title">Cảnh báo</h2>
+            <p id="warningText" class="warning-text"></p>
+        </section>
+
+        <footer class="footer">
+            <p>Module của Tuấn Anh — Web Speech API (vi-VN) → JSON → Backend</p>
+            <p class="hint">Xem <code>docs/integration-contract.md</code> để biết hợp đồng với backend.</p>
+        </footer>
+    </main>
+
+    <!-- Order matters: config first, then app.js -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
