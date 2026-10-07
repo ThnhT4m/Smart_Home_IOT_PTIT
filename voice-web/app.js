@@ -197,7 +197,7 @@
                 message = "Không tìm thấy hoặc không truy cập được microphone. Kiểm tra thiết bị rồi thử lại.";
                 break;
             case "network":
-                message = "Lỗi mạng hoặc dịch vụ Speech Recognition. Kiểm tra kết nối Internet rồi thử lại.";
+                message = "Web Speech API không kết nối được tới Google servers. Mở trang này trong Chrome ngoài sandbox (có Internet) để dùng micro. Trong sandbox, bạn vẫn demo được bằng cách gõ câu lệnh vào ô nhập bên dưới rồi bấm Gửi lệnh.";
                 break;
             case "aborted":
                 message = "Đã hủy nhận diện giọng nói.";
