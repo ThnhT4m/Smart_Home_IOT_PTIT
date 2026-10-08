@@ -11,8 +11,8 @@
     "device_id": "THAY_BANG_DEVICE_ID_CUA_DEN",
     "rpc_type": "oneway",
     "actions": {
-      "bat": { "method": "setLed", "params": { "state": true } },
-      "tat": { "method": "setLed", "params": { "state": false } }
+      "bat": { "method": "setLight", "params": { "state": true } },
+      "tat": { "method": "setLight", "params": { "state": false } }
     }
   }
 }
