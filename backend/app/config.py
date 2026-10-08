@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     rpc_timeout_ms: int = 5000
     port: int = 5000
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-3.8-flash"
+    gemini_model: str = "gemini-3.5-flash-lite"
     gemini_timeout_ms: int = 15000
 
     @property
